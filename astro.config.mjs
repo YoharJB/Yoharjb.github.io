@@ -12,19 +12,10 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  pages: [
-    {
-      src: '/pages/index.astro',
-      path: '/',
-      site: "https://yoharjb.github.io",
-     integrations: [
-     sitemap(),
-     robotsTxt({
-      sitemap: [
-        "https://yoharjb.github.io/sitemap-index.xml",
-        "https://yoharjb.github.io/sitemap-0.xml",
-    },
-  ],
+  site: "https://yoharjb.github.io/",
+  integrations: [
+    sitemap(),
+    robotsTxt({
     }),
     solidJs(),
     UnoCSS({ injectReset: true }),
@@ -33,10 +24,5 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
-  },
-  output: "server",
-  adapter: netlify({ edgeMiddleware: true }),
-  vite: {
-    assetsInclude: "**/*.riv",
   },
 });
