@@ -12,14 +12,19 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://yoharjb.github.io",
-  integrations: [
-    sitemap(),
-    robotsTxt({
+  pages: [
+    {
+      src: '/pages/index.astro',
+      path: '/',
+      site: "https://yoharjb.github.io",
+     integrations: [
+     sitemap(),
+     robotsTxt({
       sitemap: [
         "https://yoharjb.github.io/sitemap-index.xml",
         "https://yoharjb.github.io/sitemap-0.xml",
-      ],
+    },
+  ],
     }),
     solidJs(),
     UnoCSS({ injectReset: true }),
